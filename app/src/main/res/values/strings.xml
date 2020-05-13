@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Network Project</string>
+    <string name="title_activity_splash_screen" >Splash</string>
+    <string name="id">Id :</string>
+    <string name="distance_in_meters">Distance in meters:</string>
+
+</resources>
