@@ -24,3 +24,4 @@ with Covid-19, his/her recent contacts are notified and advised to either self-i
 seek medical help. Technically, people who are found to have been in close contact
 (within a distance of 5 m) with the patient are red-flagged and their respective contacts
 are also considered as potential Covid-19 cases as well. 
+This was done with the help of the following repository: https://github.com/helloworldkr/Bluetooth-ble-beamer-and-scanner-for-tracing-corona-virus-infected-individual
