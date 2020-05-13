@@ -1,7 +1,7 @@
 # Covid19TraceApp
 
 As you well know, Covid-19 remains a very challenging disease worldwide. Thus far,
-there are about 800 K cases worldwide and about 38 K deaths from this Coronavirus
+there are about 4.5 million cases worldwide and about 294K deaths from this Coronavirus
 pandemic. Contact tracing is one of many possible techniques that can be employed
 to limit the widespread of the virus.
 Traditionally, contact tracing was carried out by having patients complete paper forms,
