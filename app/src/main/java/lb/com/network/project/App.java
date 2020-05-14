@@ -12,8 +12,6 @@ import android.os.Build;
 import android.util.Log;
 
 
-import com.onesignal.OneSignal;
-
 import androidx.core.app.NotificationCompat;
 import lb.com.network.project.R;
 
@@ -37,11 +35,6 @@ public class App extends Application implements BootstrapNotifier {
     @Override
     public void onCreate() {
         super.onCreate();
-        // OneSignal Initialization
-        OneSignal.startInit(this)
-                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
-                .unsubscribeWhenNotificationsAreDisabled(true)
-                .init();
 
         BeaconManager beaconManager = org.altbeacon.beacon.BeaconManager.getInstanceForApplication(this);
 

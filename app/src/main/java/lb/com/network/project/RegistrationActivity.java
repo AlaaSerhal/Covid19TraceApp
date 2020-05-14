@@ -10,8 +10,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.onesignal.OneSignal;
-
 import lb.com.network.project.Utils.Utils;
 import lb.com.network.project.R;
 import lb.com.network.project.model.ApiBaseResponse;
@@ -30,25 +28,13 @@ public class RegistrationActivity extends AppCompatActivity {
     public static final String sysIdKey = "sysIdKey";
     public static final String nameKey = "nameKey";
     public static final String mobileKey = "mobileKey";
-    public static final String oneSignalId = "oneSignalId";
     public static final String IsFirsTime = "isFirstTimeKey";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         nameEditText = (EditText)findViewById(R.id.name);
         mobileEditText = (EditText)findViewById(R.id.mobile);
-
-        OneSignal.idsAvailable(new OneSignal.IdsAvailableHandler() {
-            @Override
-            public void idsAvailable(String userId, String registrationId) {
-                SharedPreferences prefs = getApplicationContext().getSharedPreferences(PREF_NAME,PRIVATE_MODE);
-                SharedPreferences.Editor editor = prefs.edit();
-                editor.putString(oneSignalId, userId);
-                editor.commit();
-            }
-        });
     }
 
     public void start(View view) {
@@ -70,12 +56,9 @@ public class RegistrationActivity extends AppCompatActivity {
 
 
         //ToDo: send data to back-end
-
-
         User user = new User();
         user.setUserID(systemID);
         user.setFullName(name);
-        user.setOneSignalId(prefs.getString(oneSignalId, null));
         user.setMobileNumber(Integer.parseInt(mobile));
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);

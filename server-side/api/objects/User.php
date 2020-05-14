@@ -2,14 +2,13 @@
 class User{
 
     private $conn;
-    private $table_name = "user";
+    private $table_name = "User";
   
     // object properties
     public $userID;
     public $fullName;
     public $mobileNumber;
     public $isILL;
-    public $oneSignalId;
     
     // constructor with $db as database connection
     public function __construct($db){
@@ -52,7 +51,7 @@ function create(){
     $query = "INSERT INTO
                 " . $this->table_name . "
             SET
-                userID=:userID, fullName=:fullName, mobileNumber=:mobileNumber, isILL=:isILL,oneSignalId=:oneSignalId";
+                userID=:userID, fullName=:fullName, mobileNumber=:mobileNumber, isILL=:isILL";
   
     // prepare query
     $stmt = $this->conn->prepare($query);
@@ -62,16 +61,13 @@ function create(){
     $this->fullName=htmlspecialchars(strip_tags($this->fullName));
     $this->mobileNumber=htmlspecialchars(strip_tags($this->mobileNumber));
     $this->isILL=htmlspecialchars(strip_tags($this->isILL));
-    $this->oneSignalId=htmlspecialchars(strip_tags($this->oneSignalId));
     
   
     // bind values
     $stmt->bindParam(":userID", $this->userID);
     $stmt->bindParam(":fullName", $this->fullName);
     $stmt->bindParam(":mobileNumber", $this->mobileNumber);
-    $stmt->bindParam(":oneSignalId", $this->oneSignalId);
     $stmt->bindParam(":isILL", $this->isILL);
-
   
     // execute query
     if($stmt->execute()){

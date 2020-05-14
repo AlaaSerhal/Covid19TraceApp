@@ -2,6 +2,7 @@
 class distanceTable{
     private $conn;
     private $table_name = "distancetable";
+  
     public $userID1;
     public $userID2;
     public $distance;
@@ -72,17 +73,19 @@ class distanceTable{
             }
 
 
-    function getcontacts(){
-        $query= "SELECT userID2, i.mobileNumber, i.oneSignalId FROM distancetable u, user i WHERE u.userID2=i.userID AND u.userID1=:userID1 ";
+    function getdistance(){
+
+        $query= "SELECT distance FROM distancetable u WHERE userID1=:userID1 AND userID2=:userID2 ";
         $stmt = $this->conn->prepare($query);
         $this->userID1=htmlspecialchars(strip_tags($this->userID1));
         $stmt->bindParam(":userID1", $this->userID1);
+        $this->userID2=htmlspecialchars(strip_tags($this->userID2));
+        $stmt->bindParam(":userID2", $this->userID2);
         $stmt->execute();
       
         return $stmt;
     
     }
-    
 
     function updatedistance(){
   

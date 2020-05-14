@@ -1,9 +1,9 @@
 <?php
 class Database{
     private $host = "localhost";
-    private $db_name = "project";
+    private $db_name = "networksProject";
     private $username = "root";
-    private $password = "pi@dmin";
+    private $password = "";
     public $conn;
     public function getConnection(){
         $this->conn = null;

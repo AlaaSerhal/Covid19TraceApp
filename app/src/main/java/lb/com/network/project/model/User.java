@@ -13,17 +13,6 @@ public class User {
     @SerializedName("mobileNumber")
     @Expose
     private Integer mobileNumber;
-    @SerializedName("oneSignalId")
-    @Expose
-    private String oneSignalId;
-
-    public String getOneSignalId() {
-        return oneSignalId;
-    }
-
-    public void setOneSignalId(String oneSignalId) {
-        this.oneSignalId = oneSignalId;
-    }
 
     public String getUserID() {
         return userID;

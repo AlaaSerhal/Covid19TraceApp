@@ -9,18 +9,11 @@ include_once '../objects/User.php';
 $database = new Database();
 $db = $database->getConnection();
 
-if($db == null){
- echo json_encode(
-        array("message" => "Can not connect to the database")
-    );
-}
-
 $User= new User($db);
 
 // query products
 $stmt = $User->read();
 $num = $stmt->rowCount();
-
   
 // check if more than 0 record found
 if($num>0){
