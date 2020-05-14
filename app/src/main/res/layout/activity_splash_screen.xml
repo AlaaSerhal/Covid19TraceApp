@@ -8,11 +8,26 @@
 
 
     <TextView
+        android:id="@+id/textView7"
+        android:layout_width="280sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="690dp"
+        android:layout_marginBottom="8dp"
+        android:foregroundGravity="bottom"
+        android:gravity="bottom"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingBottom="8dp"
+        android:text="By Alaa Serhal and Rayan El Ayache"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp" />
+
+    <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:textSize="25dp"
+        android:text="Covid-19 Contact Tracing"
         android:textColor="#FFFFFF"
-        android:text="WAWA" />
+        android:textSize="25dp" />
 </RelativeLayout>

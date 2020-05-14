@@ -64,7 +64,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="Tested Positive For Covid-19"
-        android:onClick="updateState"/>
+        android:onClick="updateState"
+        android:shadowColor="#3F51B5"
+        android:text="Tested Positive For Covid-19" />
 
 </RelativeLayout>
