@@ -9,7 +9,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 // get database connection
 include_once '../config/config.php';
   
-// instantiate user object
+// instantiate product object
 include_once '../objects/User.php';
   
 $database = new Database();
@@ -27,14 +27,15 @@ if(
     !empty($data->mobileNumber) 
 ){
   
-    // set user property values
+    // set product property values
     $user->userID = $data->userID;
     $user->fullName = $data->fullName;
     $user->mobileNumber = $data->mobileNumber;
+    $user->oneSignalId = $data->oneSignalId ;
     if(!empty($data->isILL)){
         $user->isILL=$data->isILL;
     }
-    // create the user
+    // create the product
     if($user->create()){
   
         // set response code - 201 created
@@ -44,7 +45,7 @@ if(
         echo json_encode(array("message" => "User was created."));
     }
   
-    // if unable to create the user, tell the user
+    // if unable to create the product, tell the user
     else{
   
         // set response code - 503 service unavailable
