@@ -9,7 +9,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 // get database connection
 include_once '../config/config.php';
   
-// instantiate contact object
+// instantiate product object
 include_once '../objects/distanceTable.php';
   
 $database = new Database();
@@ -24,7 +24,7 @@ if(
     !empty($data->distance) 
 ){
    
-    // set contact property values
+    // set product property values
     $contact->userID1 = $data->userID1;
     $contact->userID2 = $data->userID2;
     $contact->distance = $data->distance;
