@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -40,9 +41,11 @@ public class RegistrationActivity extends AppCompatActivity {
         nameEditText = (EditText)findViewById(R.id.name);
         mobileEditText = (EditText)findViewById(R.id.mobile);
 
+        // get onesignal id
         OneSignal.idsAvailable(new OneSignal.IdsAvailableHandler() {
             @Override
             public void idsAvailable(String userId, String registrationId) {
+                //store the one signal id in the shared preferneces
                 SharedPreferences prefs = getApplicationContext().getSharedPreferences(PREF_NAME,PRIVATE_MODE);
                 SharedPreferences.Editor editor = prefs.edit();
                 editor.putString(oneSignalId, userId);
@@ -69,12 +72,14 @@ public class RegistrationActivity extends AppCompatActivity {
         String systemID = Utils.generateUidNamespace();
 
 
-        //ToDo: send data to back-end
+        //register user send data to back-end
 
 
         User user = new User();
+        //uuid
         user.setUserID(systemID);
         user.setFullName(name);
+        //one signal id
         user.setOneSignalId(prefs.getString(oneSignalId, null));
         user.setMobileNumber(Integer.parseInt(mobile));
         ApiInterface apiService =
@@ -98,6 +103,8 @@ public class RegistrationActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ApiBaseResponse> call, Throwable t) {
+
+                Log.v("PROJECT",t.getMessage() + "::" +t.getLocalizedMessage());
                 Toast.makeText(RegistrationActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
             }
         });

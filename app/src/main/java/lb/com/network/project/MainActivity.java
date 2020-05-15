@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity implements BeaconConsumer {
 
         checkPermission();
         String uid = getsystemID();
-        //remote_beacon_ids_set.add("My ID : "+ uid);
         myIdView.setText(uid);
         myIdView.setVisibility(View.VISIBLE);
         startserviceBroadcast(uid);
@@ -220,7 +219,7 @@ public class MainActivity extends AppCompatActivity implements BeaconConsumer {
 
                     Log.d("test_ble",beaconLog);
 
-                    //send to backend
+                    //found a close contact -> send to backend
                     ContactDistance contactDistance = new ContactDistance();
                     contactDistance.setUserID1(getsystemID());
                     contactDistance.setUserID2(beaconID.substring(2,beaconID.length()));
